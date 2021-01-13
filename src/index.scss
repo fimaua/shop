@@ -1,0 +1,171 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    font-family: Open Sans,sans-serif;
+    font-size: 32px;
+}
+#root {
+    min-height: 100vh;
+    display: flex;
+    background-color: #e7efec;
+    justify-content: center;
+}
+.flights {
+    &-title {
+        text-transform: uppercase;
+        font-size: 70px;
+        font-weight: 300;
+        font-stretch: 100%;
+        min-width: 900px;
+    }
+    &-searchField {
+        display: flex;
+        
+        &__input {
+            width: 100%;
+            height: 80px;
+            font-size: 24px;
+            border: none;
+            padding-left: 30px;
+        }
+
+        &__searchButton {
+            height: 80px;
+            width: 200px;
+            padding: 0px 20px;
+            color: #ffffff;
+            font-size: 26px;
+            font-weight: 600;
+            text-transform: uppercase;
+            background-color: #1EB7EE;
+            border: none;
+            border-radius: 0 80px 0 0;
+        }
+    }
+    &-navigation {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-top: 20px;
+        & a {
+            cursor: pointer;
+            outline: none;
+            overflow: hidden;
+            width: 70%;
+            border: none;
+            border-radius: 80px 80px 0 0;
+            text-transform: uppercase;
+            text-decoration: none;
+            font-weight: 600;
+            line-height: 60px;
+            background-color:#ffffff;
+            color: #1EB7EE;
+        }
+
+        &__departures {
+            text-align: right;
+            padding-right: 60px;
+        }
+        &__arrivals {
+            padding-left: 60px;
+            text-align: left;
+        }
+        & .active {
+            color:#ffffff;
+            background-color: #1EB7EE;
+        }
+    }
+    &-schedule {
+        display: flex;
+        flex-direction: column;
+        background-color: #ffffff;
+
+        &__info {
+            display: flex;
+            align-items: center;
+            margin-top: 50px;
+            width: 100%;
+            height: 60px;
+
+            & div {
+                display: flex;
+                flex-grow: 1;
+                color: #95989A;
+                font-size: 20px;
+                line-height: 60px;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+
+        & .flights__list-arrivals {
+
+            & .flight {
+                display: flex;
+                background-color: rgba(0,102,135,.1);
+                font-size: 22px;
+
+                
+                &:nth-child(even) {
+                    background-color: #ffffff;
+                }
+
+                &__terminal {
+                    text-align: center;
+                      
+                        & .term__a {
+                            border-radius: 50%;
+                            font-weight: 700;
+                            width: 40px;
+                            height: 40px;
+                            line-height: 35px;
+                            color: #63c745;
+                            border: 1px solid #63c745;                        
+                        }
+                        & .term__d {
+                            @extend .term__a;
+                            color:  #1EB7EE;;
+                            border: 1px solid #1EB7EE;; 
+                        }
+                    
+                }
+
+
+                &__airline {
+                    & img {
+                        height: 100%;
+                        width: 100%;
+                        margin-right: 5px;
+                    }
+                }
+                
+                & div {
+                    display: flex;
+                    float: left;
+                    flex-grow: 1;
+                    padding: 16px 10px;
+                    align-items: center;
+                    line-height: 35px;
+
+                    & img {
+                        max-width: 60px;
+                        max-height: 40px;
+                    }
+                }
+            }
+        }
+        & .flights__list-departures {
+            @extend .flights__list-arrivals
+        }
+        & .flights__list-noFlights {
+            display: flex;
+            line-height: 200px;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+}
